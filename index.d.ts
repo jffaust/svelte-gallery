@@ -1,5 +1,5 @@
 /// <reference types="svelte" />
-import { SvelteComponent, SvelteComponentTyped } from 'svelte';
+import { SvelteComponent } from 'svelte';
 
 export interface GalleryProps {
   images: Partial<HTMLImageElement>[];
@@ -8,8 +8,4 @@ export interface GalleryProps {
   imageComponent?: typeof SvelteComponent;
 }
 
-export default class Gallery extends SvelteComponentTyped<
-  GalleryProps,
-  {},
-  {}
-> {}
+export default class Gallery extends SvelteComponent<GalleryProps> {}

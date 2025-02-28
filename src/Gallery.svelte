@@ -2,13 +2,14 @@
   import Img from './lib/Img.svelte';
   import layout from './lib/layout';
 
-  export let images = [];
-  export let rowHeight = 220;
-  export let gutter = 8;
-  export let imageComponent = Img;
-
-  let scaledImages = [];
-  let width = 0;
+  let { images = [], rowHeight = 220, gutter = 8, imageComponent = Img } = $props();
+  let width = $state(0);
+  let scaledImages = $derived(layout({
+    images,
+    containerWidth: width || 1280,
+    targetHeight: rowHeight,
+    gutter
+  }));
 
   function imgStyle({ scaledWidth, scaledHeight, isLastInRow, isLastRow }) {
     let marginRight = gutter + 'px',
@@ -22,14 +23,6 @@
 
     return `height: ${scaledHeight}px; flex: ${flex}; margin-right: ${marginRight}; margin-bottom: ${marginBottom};`;
   }
-
-  $: scaledImages = layout({
-    images,
-    containerWidth: width || 1280,
-    targetHeight: rowHeight,
-    gutter
-  });
-
 </script>
 
 <style>
