@@ -6,7 +6,11 @@
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "svelte": "./src/index.js",
+  "exports": {
+    ".": {
+      "svelte": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "rollup -c",
     "develop": "rollup -cw",
@@ -33,7 +37,7 @@
     "@rollup/plugin-node-resolve": "^13.0.0",
     "prettier": "^2.1.2",
     "rollup": "^2.48.0",
-    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-svelte": "^7.2.2",
     "rollup-plugin-terser": "^7.0.2",
     "svelte": "^5.0.0-next.1"
   },
