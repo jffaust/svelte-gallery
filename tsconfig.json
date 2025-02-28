@@ -3,7 +3,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "target": "esnext",
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "strict": true,

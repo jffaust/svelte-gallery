@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 export default {
-  input: pkg.svelte,
+  input: "./src/index.js",
   output: [
     { file: pkg.module, format: 'es' },
     { file: pkg.main, format: 'umd', name: 'svelte-gallery' }
