@@ -2,7 +2,7 @@
   import Img from './Img.svelte';
   import layout from './layout';
 
-  let { images = [], rowHeight = 220, gutter = 8, imageComponent = Img } = $props();
+  let { images = [], rowHeight = 220, gutter = 8, children } = $props();
   let width = $state(0);
   let scaledImages = $derived(layout({
     images,
@@ -58,9 +58,11 @@
         class="image"
         style={imgStyle({ scaledHeight, scaledWidth, isLastInRow, isLastRow })}
       >
-        <slot {index} {image}>
-          <svelte:component this={imageComponent} {...image} />
-        </slot>
+        {#if children}
+          {@render children(index, image)}
+        {:else}
+          <Img {...image} />
+        {/if}
       </div>
     {/each}
   </div>
