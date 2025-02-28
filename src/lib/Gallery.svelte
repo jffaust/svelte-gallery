@@ -1,6 +1,6 @@
 <script>
-  import Img from './lib/Img.svelte';
-  import layout from './lib/layout';
+  import Img from './Img.svelte';
+  import layout from './layout';
 
   let { images = [], rowHeight = 220, gutter = 8, imageComponent = Img } = $props();
   let width = $state(0);
