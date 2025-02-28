@@ -2,7 +2,7 @@
   import Img from './Img.svelte';
   import layout from './layout';
 
-  let { images = [], rowHeight = 220, gutter = 8, children, ImageComponent = Img } = $props();
+  let { images = [], rowHeight = 220, gutter = 8, children = null, ImageComponent = Img } = $props();
   let width = $state(0);
   let scaledImages = $derived(layout({
     images,

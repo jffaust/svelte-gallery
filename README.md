@@ -17,16 +17,28 @@ npm i svelte-gallery
 ```svelte
 <script>
   import Gallery from 'svelte-gallery';
+  import CustomImg from '$lib/CustomImg.svelte';
 
   const images = [
-    { src: 'https://source.unsplash.com/random', width: 600, height: 400 },
-    { src: 'https://source.unsplash.com/random', width: 400, height: 600 },
-    { src: 'https://source.unsplash.com/random', width: 800, height: 1200 },
-    { src: 'https://source.unsplash.com/random', width: 300, height: 200 }
+    { src: 'https://loremflickr.com/600/400', width: 600, height: 400 },
+    { src: 'https://loremflickr.com/400/600', width: 400, height: 600 },
+    { src: 'https://loremflickr.com/800/1200', width: 800, height: 1200 },
+    { src: 'https://loremflickr.com/300/200', width: 300, height: 200 },
   ];
 </script>
 
+<p>Default Gallery</p>
 <Gallery {images} />
+
+<p>Gallery with children snippet</p>
+<Gallery {images}>
+	{#snippet children(index, image)}
+		<img {...image} />
+	{/snippet}
+</Gallery>
+
+<p>Gallery with custom component</p>
+<Gallery {images} ImageComponent={CustomImg} />
 ```
 
 ### Properties
